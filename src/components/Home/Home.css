@@ -1,0 +1,24 @@
+.home-about {
+  background-image: url('../../images/home/home-about.jpg');
+  min-height: 100vh;
+  background-size: cover;
+  background-position: fixed;
+}
+
+.home-community-square {
+
+}
+
+.home-pools {
+    background-image: url('https://images.squarespace-cdn.com/content/v1/58497d0f6b8f5bc8ca92670f/1660210522751-4CXLGD38CPDGIGQHRHE7/110-original-photo.jpg?format=2500w');
+    min-height: 100vh;
+    background-size: cover;
+    background-position: fixed;
+}
+
+.home-community-square {}
+
+
+.homesite-card {
+
+}
