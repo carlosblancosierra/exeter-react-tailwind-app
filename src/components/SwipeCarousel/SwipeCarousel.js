@@ -1,11 +1,8 @@
 import React, { useEffect, useState } from "react";
 import { motion, useMotionValue } from "framer-motion";
-
-const imgs = [
-  "https://images.squarespace-cdn.com/content/v1/58497d0f6b8f5bc8ca92670f/a592df30-f6cf-4b2a-9367-8c0f1d0dde58/73401826514__E8A75506-6BA7-4283-81AE-EA68D6D63DF0+%281%29.jpg?format=2500w",
-  "https://images.squarespace-cdn.com/content/v1/58497d0f6b8f5bc8ca92670f/a592df30-f6cf-4b2a-9367-8c0f1d0dde58/73401826514__E8A75506-6BA7-4283-81AE-EA68D6D63DF0+%281%29.jpg?format=2500w",
-  "https://images.squarespace-cdn.com/content/v1/58497d0f6b8f5bc8ca92670f/a592df30-f6cf-4b2a-9367-8c0f1d0dde58/73401826514__E8A75506-6BA7-4283-81AE-EA68D6D63DF0+%281%29.jpg?format=2500w",
-];
+import NeighborhoodCard from '../NeighborhoodCard/NeighborhoodCard';
+import { communities } from '../../mockData';
+import { Link } from 'react-router-dom';
 
 const ONE_SECOND = 1000;
 const AUTO_DELAY = ONE_SECOND * 10;
@@ -18,8 +15,10 @@ const SPRING_OPTIONS = {
   damping: 50,
 };
 
+const objs = communities
+
 const SwipeCarousel = () => {
-  const [imgIndex, setImgIndex] = useState(0);
+  const [objIndex, setObjIndex] = useState(0);
 
   const dragX = useMotionValue(0);
 
@@ -28,8 +27,8 @@ const SwipeCarousel = () => {
       const x = dragX.get();
 
       if (x === 0) {
-        setImgIndex((pv) => {
-          if (pv === imgs.length - 1) {
+        setObjIndex((pv) => {
+          if (pv === objs.length - 1) {
             return 0;
           }
           return pv + 1;
@@ -43,10 +42,10 @@ const SwipeCarousel = () => {
   const onDragEnd = () => {
     const x = dragX.get();
 
-    if (x <= -DRAG_BUFFER && imgIndex < imgs.length - 1) {
-      setImgIndex((pv) => pv + 1);
-    } else if (x >= DRAG_BUFFER && imgIndex > 0) {
-      setImgIndex((pv) => pv - 1);
+    if (x <= -DRAG_BUFFER && objIndex < objs.length - 1) {
+      setObjIndex((pv) => pv + 1);
+    } else if (x >= DRAG_BUFFER && objIndex > 0) {
+      setObjIndex((pv) => pv - 1);
     }
   };
 
@@ -62,55 +61,56 @@ const SwipeCarousel = () => {
           x: dragX,
         }}
         animate={{
-          translateX: `-${imgIndex * 100}%`,
+          translateX: `-${objIndex * 100}%`,
         }}
         transition={SPRING_OPTIONS}
         onDragEnd={onDragEnd}
         className="flex cursor-grab items-center active:cursor-grabbing"
       >
-        <Images imgIndex={imgIndex} />
+        <Components componentIndex={objIndex} />
       </motion.div>
 
-      <Dots imgIndex={imgIndex} setImgIndex={setImgIndex} />
+      <Dots objIndex={objIndex} setObjIndex={setObjIndex} />
       <GradientEdges />
     </div>
   );
 };
 
-const Images = ({ imgIndex }) => {
+const Components = ({ componentIndex }) => {
   return (
     <>
-      {imgs.map((imgSrc, idx) => {
+      {objs.map((obj, idx) => {
         return (
           <motion.div
             key={idx}
-            style={{
-              backgroundImage: `url(${imgSrc})`,
-              backgroundSize: "cover",
-              backgroundPosition: "center",
-            }}
             animate={{
-              scale: imgIndex === idx ? 0.95 : 0.85,
+              scale: componentIndex === idx ? 0.95 : 0.85,
             }}
             transition={SPRING_OPTIONS}
             className="aspect-video w-screen shrink-0 rounded-xl bg-neutral-800 object-cover"
-          />
+          >
+
+            <Link to={obj.url}>
+                <NeighborhoodCard obj={obj} />
+            </Link>
+
+          </motion.div>
         );
       })}
     </>
   );
 };
 
-const Dots = ({ imgIndex, setImgIndex }) => {
+const Dots = ({ objIndex, setObjIndex }) => {
   return (
     <div className="mt-4 flex w-full justify-center gap-2">
-      {imgs.map((_, idx) => {
+      {objs.map((_, idx) => {
         return (
           <button
             key={idx}
-            onClick={() => setImgIndex(idx)}
+            onClick={() => setObjIndex(idx)}
             className={`h-3 w-3 rounded-full transition-colors ${
-              idx === imgIndex ? "bg-neutral-50" : "bg-neutral-500"
+              idx === objIndex ? "bg-neutral-50" : "bg-neutral-500"
             }`}
           />
         );
