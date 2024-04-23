@@ -5,7 +5,7 @@ import { faExpand, faBed, faBath, faHouse } from '@fortawesome/free-solid-svg-ic
 const HomesiteHeroIcons = ({ selectedHomesite }) => {
     return (
         <div>
-            <div className="md:flex overflow-x-auto dark:text-white">
+            <div className="md:flex overflow-x-auto text-dark-blue dark:text-white">
                 <div className="md:flex items-center">
                     <FontAwesomeIcon icon={faHouse} className="mr-2" />
                     <span className="font-bold mr-2">{selectedHomesite.sqft}</span> sqft

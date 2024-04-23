@@ -9,12 +9,13 @@ import alamance from './images/plans/alamance.jpg'
 import bagley from './images/plans/bagley.jpg'
 import cauthorn from './images/plans/cauthorn.jpg'
 import kinsale from './images/plans/kinsale.jpg'
+import mtv3 from './images/mtv3.jpg'
 
 const homesites = [
     {
-        'address': '1605 Legacy Ridge Lane',
-        'community': 'Grand Highland Estates',
-        'city': 'Wake Forest',
+        'address': '1801 Okeefe Lane',
+        'community': 'MacTavish',
+        'city': 'Raleigh',
         'zip': '27587',
         'state': 'NC',
         'beds': 4,
@@ -24,15 +25,18 @@ const homesites = [
         'acres': 0.92,
         'slug': '1605-legacy-ridge-lane-grand-highland-estates-lot-10',
         'community_slug': 'grand-highland-estates',
-        'image_card':'https://images.squarespace-cdn.com/content/v1/58497d0f6b8f5bc8ca92670f/1706650938698-KGVYO2XYOW3MMR991MZB/Grand+Highland+1.29+2.jpg?format=1500w',
-        'main_image_url': 'https://images.squarespace-cdn.com/content/v1/58497d0f6b8f5bc8ca92670f/1706650940351-6M35FS92N4PY2C3NIHQS/Grand+Highland+1.29+3.jpg?format=2500w',
+        'image_card': mtv3,
+        'main_image_url':  mtv3,
         'description': 'Move-in May 2024',
         'images': [
             'https://images.squarespace-cdn.com/content/v1/58497d0f6b8f5bc8ca92670f/1711394341456-CQAEMR53HR216LN6M3LI/IMG_2398.JPG?format=2500w',
             'https://images.squarespace-cdn.com/content/v1/58497d0f6b8f5bc8ca92670f/1711394343434-Y3TZ28VJ5108CEJW0YX2/IMG_2411.JPG?format=2500w',
             'https://images.squarespace-cdn.com/content/v1/58497d0f6b8f5bc8ca92670f/1711394347376-02X1CR2BXPEBCVSLUJYN/IMG_2425.JPG?format=2500w',
             'https://images.squarespace-cdn.com/content/v1/58497d0f6b8f5bc8ca92670f/1711394348763-E3NC8944GWXDXCP6XXAZ/IMG_2438.JPG?format=2500w',
-        ]
+        ],
+        plan: 'Kinsale',
+        lat: 35.7248,
+        long: -78.6703,
     },
     {
         'address': '7404 Dover Hills Drive',
@@ -167,6 +171,16 @@ const plans = [
         half_baths: 1,
         sqft: 3000,
         image_card: kinsale,
+        images : [
+            kinsale,
+            kinsale,
+            kinsale,
+            kinsale,
+            kinsale,
+            kinsale,
+            kinsale,
+            kinsale,
+        ]
     },
     {
         name: "Cauthorn",

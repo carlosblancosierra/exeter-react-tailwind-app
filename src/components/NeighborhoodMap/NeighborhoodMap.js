@@ -49,8 +49,8 @@ function NeighborhoodMap() {
     }, []);
 
     return (
-        <section className='dark:bg-gray-700 mt-10'>
-        <div className='grid grid-cols-2 max-w-screen-2xl mx-auto '>
+        <section className='dark:bg-gray-700'>
+        <div className='grid grid-cols-1 md:grid-cols-2 max-w-screen-2xl mx-auto p-5 md:p-10'>
             <div className='pr-5'>
              <h2 className="text-3xl font-semibold md:text-5xl text-gray-900 dark:text-white uppercase">
                 Design your dream home
@@ -83,10 +83,9 @@ function NeighborhoodMap() {
                         Available for Presale
                     </a>
                 </p>
-        </div>
-        <div ref={mapRef} style={{ width: '100%', height: '650px' }}></div>
-        </div>
-
+            </div>
+            <div ref={mapRef} style={{ width: '100%', height: '650px' }}></div>
+            </div>
         </section>
     );
 }

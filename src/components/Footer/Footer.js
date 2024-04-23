@@ -35,6 +35,14 @@ const data = [
             { title: 'Other', url: '#' },
         ]
     },
+    {
+        title: 'Contact us',
+        links: [
+            { title: 'Jeremy Gage', url: '#' },
+            { title: 'jgage@exeterbuilding.com', url: '#' },
+            { title: '(919) 592-9738', url: '#' },
+        ]
+    },
 ];
 console.log(data);
 const Footer = () => {
@@ -42,38 +50,36 @@ const Footer = () => {
         <footer class="bg-dark-blue">
         <div class="mx-auto max-w-screen-2xl px-4 py-16 sm:px-6 lg:px-8">
             <div class="lg:flex lg:items-start lg:gap-8">
-            <div class="text-teal-600">
-                <img src={isotype} alt="Exeter Building Company" class="w-3/5 mx-auto mb-10" />
-            </div>
-
             <div class="mt-8 grid grid-cols-2 gap-8 lg:mt-0 lg:grid-cols-5 lg:gap-y-16">
                 <div class="col-span-2">
                 <div>
                     <h2 class="text-2xl font-bold text-white">Exeter Building Company</h2>
 
                     <p class="mt-4 text-gray-300">
-                    Lorem ipsum dolor, sit amet consectetur adipisicing elit. Esse non cupiditate quae nam
-                    molestias.
+                        Wake County 2023 Home Builder of the Year
+                        <br/>Raleigh’s Premier Custom Home Builder
+                        <br/>Specializing in Out-of-Town Buyers
                     </p>
+
                 </div>
                 </div>
 
                 <div class="col-span-2 lg:col-span-3 lg:flex lg:items-end">
                 <form class="w-full">
-                    <label for="UserEmail" class="sr-only"> Email </label>
+                    <label for="UserEmail" class="sr-only"> Email</label>
 
                     <div
                     class="border border-gray-100 p-2 focus-within:ring sm:flex sm:items-center sm:gap-4"
                     >
-                    <input
-                        type="email"
-                        id="UserEmail"
-                        placeholder="john@rhcp.com"
-                        class="w-full border-none focus:border-transparent focus:ring-transparent sm:text-sm bg-white"
-                    />
+                        <input
+                            type="email"
+                            id="UserEmail"
+                            placeholder="jgage@exeterbuilding.com"
+                            class="w-full border-none sm:text-sm bg-dark-blue text-gray-300"
+                        />
 
                     <button
-                        class="mt-1 w-full bg-teal-500 px-6 py-3 text-sm font-bold uppercase tracking-wide text-white transition-none hover:bg-teal-600 sm:mt-0 sm:w-auto sm:shrink-0"
+                        class="mt-1 w-full px-6 py-3 text-sm font-bold uppercase tracking-wide text-white transition-none hover:bg-teal-600 sm:mt-0 sm:w-auto sm:shrink-0"
                     >
                         Sign Up
                     </button>
