@@ -3,19 +3,10 @@ import { AnimatePresence, motion } from "framer-motion";
 import { useState } from "react";
 import FullScreenCarrousel from "../FullScreenCarrousel/FullScreenCarrousel";
 
-const HomesiteGallery = ({imgs}) => {
-  const [isOpen, setIsOpen] = useState(false);
+const HomesiteGallery = ({imgs, isGalleryOpen, setIsGalleryOpen}) => {
   return (
-    <div className="px-4 py-64 bg-slate-900 grid place-content-center">
-      <button
-        onClick={() => setIsOpen(true)}
-        className="bg-gradient-to-r from-violet-600 to-indigo-600 text-white font-medium px-4 py-2 rounded hover:opacity-90 transition-opacity"
-      >
-        Open Modal
-      </button>
-      <SpringModal isOpen={isOpen} setIsOpen={setIsOpen} imgs={imgs} />
-    </div>
-  );
+      <SpringModal isOpen={isGalleryOpen} setIsOpen={setIsGalleryOpen} imgs={imgs} />
+        );
 };
 
 const SpringModal = ({ isOpen, setIsOpen, imgs }) => {

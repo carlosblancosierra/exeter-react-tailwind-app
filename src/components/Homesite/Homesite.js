@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { useState } from 'react';
 import pic from '../../images/home/3513-2.jpg';
 import { homesites, plans } from '../../mockData';
 import { useParams } from 'react-router-dom';
@@ -14,6 +14,11 @@ import HomesiteGallery from './HomesiteGallery';
 
 const Homesite = () => {
     const { community_slug, homesite_slug } = useParams();
+    const [isGalleryOpen, setIsGalleryOpen] = useState(false);
+
+    const openGallery = () => {
+        setIsGalleryOpen(true);
+    };
 
     // Filter homesites based on the provided community_slug and homesite_slug
     const selectedHomesite = homesites.find(
@@ -59,7 +64,10 @@ const Homesite = () => {
 
                 <div className="mx-auto pt-2 ">
                     <div className="grid grid-cols-1 md:grid-cols-2">
-                        <div className="col-span-1 bg-cover bg-center bg-no-repeat dark:bg-gray-800 relative aspect-[4/3]" style={{backgroundImage: `url(${selectedHomesite.main_image_url})`}}>
+                        <div className="col-span-1 bg-cover bg-center bg-no-repeat dark:bg-gray-800 relative aspect-[4/3]"
+                        style={{backgroundImage: `url(${selectedHomesite.main_image_url})`}}
+                        onClick={openGallery}
+                        >
                             <div className="absolute bottom-6 left-4">
                                 <a href="#" className="rounded-md bg-white p-3 mr-2">
                                     <FontAwesomeIcon icon={faPhone} className='mr-2'/>
@@ -74,18 +82,29 @@ const Homesite = () => {
                         </div>
                         <div className="col-span-1 bg-cover bg-center bg-no-repeat rounded-xl dark:bg-gray-800 relative grid">
                             <div className="grid grid-cols-2 md:grid-cols-2">
-                                <div className="col-span-1 bg-cover bg-center bg-no-repeat dark:bg-gray-800 relative aspect-[4/3]" style={{backgroundImage: `url(${selectedHomesite.images[0]})`}}>
+                                <div className="col-span-1 bg-cover bg-center bg-no-repeat dark:bg-gray-800 relative aspect-[4/3]"
+                                        style={{backgroundImage: `url(${selectedHomesite.images[0]})`}}
+                                         onClick={openGallery}
+                                        >
                                 </div>
-                                <div className="col-span-1 bg-cover bg-center bg-no-repeat dark:bg-gray-800 relative aspect-[4/3]" style={{backgroundImage: `url(${selectedHomesite.images[1]})`}}>
-                                    <div className="">
-                                        <img className="aspect-[4/3]" src={selectedHomesite.images[1]} alt="" />
-                                    </div>
+                                <div className="col-span-1 bg-cover bg-center bg-no-repeat dark:bg-gray-800 relative aspect-[4/3]"
+                                        style={{backgroundImage: `url(${selectedHomesite.images[1]})`}}
+                                        onClick={openGallery}
+
+                                >
+
                                 </div>
                             </div>
                             <div className="grid grid-cols-2 md:grid-cols-2">
-                                <div className="col-span-1 bg-cover bg-center bg-no-repeat dark:bg-gray-800 relative aspect-[4/3]" style={{backgroundImage: `url(${selectedHomesite.images[2]})`}}>
+                                <div className="col-span-1 bg-cover bg-center bg-no-repeat dark:bg-gray-800 relative aspect-[4/3]"
+                                style={{backgroundImage: `url(${selectedHomesite.images[2]})`}}
+                                onClick={openGallery}
+                                >
                                 </div>
-                                <div className="col-span-1 bg-cover bg-center bg-no-repeat dark:bg-gray-800 relative aspect-[4/3]" style={{backgroundImage: `url(${selectedHomesite.images[3]})`}}>
+                                <div className="col-span-1 bg-cover bg-center bg-no-repeat dark:bg-gray-800 relative aspect-[4/3]"
+                                style={{backgroundImage: `url(${selectedHomesite.images[3]})`}}
+                                onClick={openGallery}
+                                >
                                 </div>
                             </div>
                         </div>
@@ -160,7 +179,7 @@ const Homesite = () => {
                 </div>
             </section>
 
-            <HomesiteGallery imgs={images} />
+            <HomesiteGallery imgs={images} isGalleryOpen={isGalleryOpen} setIsGalleryOpen={setIsGalleryOpen} />
             <HomesitePlan plan={plan} />
             <HomesiteRelatedHomes homesites={homesites} />
 
