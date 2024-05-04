@@ -11,6 +11,7 @@ import {
 } from '@heroicons/react/24/outline'
 import { ChevronDownIcon, PhoneIcon, PlayCircleIcon } from '@heroicons/react/20/solid'
 import isotype from '../../images/shield.png';
+import logo from '../../images/logo-grey.png';
 
 const availableLinks = [
     { name: 'Move-In-Ready', description: 'Get a better understanding of your traffic', href: '#', icon: HomeModernIcon },
@@ -37,7 +38,7 @@ export default function Nabvar() {
                 <div className="flex lg:flex-1">
                     <a href="/" className="-m-1.5 p-1.5">
                         <span className="sr-only">Exeter Building Company</span>
-                        <img className="h-8 w-auto" src={isotype} alt="" />
+                        <img className="h-8 w-auto" src={logo} alt="" />
                     </a>
                 </div>
                 <div className="flex lg:hidden">

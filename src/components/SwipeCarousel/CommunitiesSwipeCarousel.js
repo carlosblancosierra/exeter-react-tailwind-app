@@ -1,5 +1,6 @@
 import React, { useEffect, useState } from "react";
 import { motion, useMotionValue } from "framer-motion";
+import NeighborhoodCard from '../NeighborhoodCard/NeighborhoodCard';
 import { communities } from '../../mockData';
 import { Link } from 'react-router-dom';
 
@@ -14,7 +15,9 @@ const SPRING_OPTIONS = {
   damping: 50,
 };
 
-const SwipeCarousel = ({ objs, template }) => {
+const objs = communities
+
+const CommunitiesSwipeCarousel = () => {
   const [objIndex, setObjIndex] = useState(0);
 
   const dragX = useMotionValue(0);
@@ -47,7 +50,7 @@ const SwipeCarousel = ({ objs, template }) => {
   };
 
   return (
-    <div className="relative overflow-hidden">
+    <div className="relative overflow-hidden bg-neutral-950 py-8">
       <motion.div
         drag="x"
         dragConstraints={{
@@ -64,14 +67,16 @@ const SwipeCarousel = ({ objs, template }) => {
         onDragEnd={onDragEnd}
         className="flex cursor-grab items-center active:cursor-grabbing"
       >
-        <Components componentIndex={objIndex} template={template} objs={objs} />
+        <Components componentIndex={objIndex} />
       </motion.div>
 
-      <Dots objIndex={objIndex} setObjIndex={setObjIndex} objs={objs}/>
+      <Dots objIndex={objIndex} setObjIndex={setObjIndex} />
+      <GradientEdges />
     </div>
   );
 };
-const Components = ({ componentIndex, template, objs }) => {
+
+const Components = ({ componentIndex }) => {
   return (
     <>
       {objs.map((obj, idx) => {
@@ -84,9 +89,11 @@ const Components = ({ componentIndex, template, objs }) => {
             transition={SPRING_OPTIONS}
             className="aspect-video w-screen shrink-0 rounded-xl bg-neutral-800 object-cover"
           >
+
             <Link to={obj.url}>
-              {template({ obj })}
+                <NeighborhoodCard obj={obj} />
             </Link>
+
           </motion.div>
         );
       })}
@@ -94,16 +101,16 @@ const Components = ({ componentIndex, template, objs }) => {
   );
 };
 
-const Dots = ({ objIndex, setObjIndex, objs }) => {
+const Dots = ({ objIndex, setObjIndex }) => {
   return (
-    <div className="mt-0 flex w-full justify-center gap-2">
+    <div className="mt-4 flex w-full justify-center gap-2">
       {objs.map((_, idx) => {
         return (
           <button
             key={idx}
             onClick={() => setObjIndex(idx)}
             className={`h-3 w-3 rounded-full transition-colors ${
-              idx === objIndex ? "bg-neutral-400" : "bg-neutral-300"
+              idx === objIndex ? "bg-neutral-50" : "bg-neutral-500"
             }`}
           />
         );
@@ -112,4 +119,13 @@ const Dots = ({ objIndex, setObjIndex, objs }) => {
   );
 };
 
-export default SwipeCarousel;
+const GradientEdges = () => {
+  return (
+    <>
+      <div className="pointer-events-none absolute bottom-0 left-0 top-0 w-[10vw] max-w-[100px] bg-gradient-to-r from-neutral-950/50 to-neutral-950/0" />
+      <div className="pointer-events-none absolute bottom-0 right-0 top-0 w-[10vw] max-w-[100px] bg-gradient-to-l from-neutral-950/50 to-neutral-950/0" />
+    </>
+  );
+};
+
+export default CommunitiesSwipeCarousel;

@@ -283,8 +283,52 @@
 }
 
 .text-gold {
-  color: transparent;
-  background: linear-gradient(to right, #BF953F, #a5872d, #B38728, #aa8d34, #AA771C);
-  -webkit-background-clip: text;
-  background-clip: text;
+  color: #9f7928;
+}
+
+.bg-gold {
+  background: #9f7928;
+}
+
+.btn {
+  padding-top: 0.75rem;
+  padding-bottom: 0.75rem;
+  padding-right: 1.5rem;
+  padding-left: 1.5rem;
+  font-size: 0.875rem;
+  line-height: 1.25rem;
+  text-align: center;
+  border-radius: 0.25rem;
+  display: inline-block;
+}
+
+.btn-gold {
+  background: #9f7928;
+  color: white;
+}
+
+.btn-gold:hover {
+  background: #806120;
+  color: white;
+}
+
+.btn-outline-gold {
+  background: transparent;
+  color: #9f7928;
+  border: 1px solid #9f7928;
+}
+
+.btn-outline-gold:hover {
+  background: #9f7928;
+  color: white;
+}
+
+@media (max-width: 768px) {
+  .mobile-text-shadow {
+    text-shadow: 0 0 20px black;
+  }
+}
+
+.text-available {
+  color: rgb(34 197 94);
 }

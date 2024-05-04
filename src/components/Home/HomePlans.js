@@ -2,6 +2,7 @@ import React from 'react';
 import { Link } from 'react-router-dom';
 import PlanCard from '../PlanCard/PlanCard.js';
 import { plans } from '../../mockData';
+import SwipeCarousel from '../SwipeCarousel/SwipeCarousel';
 
 const HomePlans = () => {
 
@@ -14,7 +15,7 @@ const HomePlans = () => {
                     <p className='text-center text-gray-900 dark:text-white text-md md:text-lg mt-5'>
                         Developed by the top designers in town exclusively for Exeter Building Company.
                     </p>
-                <div className='mx-auto pt-4 grid grid-cols-2 md:grid-cols-4 gap-1'>
+                <div className='mx-auto pt-4 grid grid-cols-2 hidden md:grid md:grid-cols-4 gap-1'>
                 {plans.map((plan, index) => (
                         <div key={index} className='md:my-0'>
                             <Link to={`/${plan}`}>
@@ -24,11 +25,15 @@ const HomePlans = () => {
                     ))}
                 </div>
             </div>
-             <div className=' grid grid-cols-1'>
+            <div className='md:hidden'>
+                <SwipeCarousel objs={plans} template={PlanCard}/>
+            </div>
+
+            <div className='mx-auto py-4 grid grid-cols-1'>
                 <p className='text-center'>
                     <a
                         href="/"
-                        className="inline-block min-w-80 bg-black text-white text-center mb-2 rounded border px-12 py-3 text-md font-medium transition hover:bg-gray-800 focus:outline-none focus:ring focus:ring-cyan-900 "
+                        className="inline-block btn bg-dark-blue text-white mb-2 transition hover:bg-gray-800 focus:outline-none focus:ring focus:ring-cyan-900 "
                     >
                         Plan Library
                     </a>

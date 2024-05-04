@@ -1,26 +1,50 @@
-import React from 'react';
+import { AnimatePresence, motion } from "framer-motion";
+// import { FiAlertCircle } from "react-icons/fi";
+import { useState } from "react";
+import FullScreenCarrousel from "../FullScreenCarrousel/FullScreenCarrousel";
 
-const HomesiteGallery = ({ homesite }) => {
-    return (
-        <section>
-            <div className="mx-auto max-w-screen-2xl pt-2">
-                <div className="grid grid-cols-1 md:grid-cols-1">
-                    <div className="col-span-1 bg-white dark:bg-gray-800 p-5">
-                        <h2 className="text-2xl font-bold text-dark-blue dark:text-white">Gallery</h2>
-                    </div>
-                    <div className="col-span-6 bg-white dark:bg-gray-800 p-5">
-                        <div className="grid grid-cols-6">
-                            {homesite.images.map((image, index) => (
-                                <div key={index} className="bg-cover bg-center bg-no-repeat dark:bg-gray-800 relative aspect-[4/3]" style={{backgroundImage: `url(${image})`}}>
-                                </div>
-                            ))
-                            }
-                        </div>
-                    </div>
-                </div>
+const HomesiteGallery = ({imgs}) => {
+  const [isOpen, setIsOpen] = useState(false);
+  return (
+    <div className="px-4 py-64 bg-slate-900 grid place-content-center">
+      <button
+        onClick={() => setIsOpen(true)}
+        className="bg-gradient-to-r from-violet-600 to-indigo-600 text-white font-medium px-4 py-2 rounded hover:opacity-90 transition-opacity"
+      >
+        Open Modal
+      </button>
+      <SpringModal isOpen={isOpen} setIsOpen={setIsOpen} imgs={imgs} />
+    </div>
+  );
+};
+
+const SpringModal = ({ isOpen, setIsOpen, imgs }) => {
+  return (
+    <AnimatePresence>
+      {isOpen && (
+        <motion.div
+          initial={{ opacity: 0 }}
+          animate={{ opacity: 1 }}
+          exit={{ opacity: 0 }}
+          onClick={() => setIsOpen(false)}
+          className="backdrop-blur p-8 fixed inset-0 z-50 grid place-items-center overflow-y-scroll cursor-pointer w-full h-full"
+        >
+          <motion.div
+            initial={{ scale: 0, rotate: "12.5deg" }}
+            animate={{ scale: 1, rotate: "0deg" }}
+            exit={{ scale: 0, rotate: "0deg" }}
+            onClick={(e) => e.stopPropagation()}
+            className="w-full shadow-xl cursor-default relative overflow-hidden pt-5 max-w-screen-2xl mx-auto"
+          >
+            {/* <FiAlertCircle className="text-white/10 rotate-12 text-[250px] absolute z-0 -top-24 -left-24" /> */}
+            <div className="relative z-10">
+              <FullScreenCarrousel  imgs={imgs} />
             </div>
-        </section>
-    );
+          </motion.div>
+        </motion.div>
+      )}
+    </AnimatePresence>
+  );
 };
 
 export default HomesiteGallery;

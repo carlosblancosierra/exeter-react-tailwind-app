@@ -223,7 +223,8 @@ const lots = [
         'main_image_url': '',
         'lot_number': '0',
         'lat': 35.8245,
-        'long': -78.6421
+        'long': -78.6421,
+        'status': 'Available'
     },
     {
         'address': '1900 Ridge Road',
@@ -237,7 +238,8 @@ const lots = [
         'image_card':'',
         'main_image_url': '',
         'lat': 35.8032,
-        'long': -78.7046
+        'long': -78.7046,
+        'status': 'Available'
     },
     {
         'address': '3601 Alamance Drive',
@@ -252,7 +254,8 @@ const lots = [
         'main_image_url': '',
         'lot_number': '0',
         'lat': 35.8032,
-        'long': -78.7046
+        'long': -78.7046,
+        'status': 'Available'
     },
     {
         'address': '3607 Alamance Drive',
@@ -267,7 +270,8 @@ const lots = [
         'main_image_url': '',
         'lot_number': '0',
         'lat': 35.8032,
-        'long': -78.7046
+        'long': -78.7046,
+        'status': 'Available'
     },
     {
         'address': '2820 Theresa Eileen Way',
@@ -281,7 +285,9 @@ const lots = [
         'main_image_url': '',
         'lot_number': '19',
         'lat': 35.7248,
-        'long': -78.6703
+        'long': -78.6703,
+        'status': 'Reserved',
+        'acres': '1.558',
     },
     {
         'address': '7552 Dover Hills Drive',
@@ -295,7 +301,9 @@ const lots = [
         'main_image_url': '',
         'lot_number': '50',
         'lat': 35.9513,
-        'long': -78.6991
+        'long': -78.6991,
+        'status': 'Available',
+        'acres': '1.558',
     },
     {
         'address': '1804 Okeefe Lane',
@@ -308,7 +316,9 @@ const lots = [
         'image_card':'',
         'main_image_url': '',
         'lat': 35.7248,
-        'long': -78.6703
+        'long': -78.6703,
+        'status': 'U. Contract',
+        'acres': '1.558',
     },
     {
         'address': '7429 Wexford Woods Lane',
@@ -321,7 +331,9 @@ const lots = [
         'image_card':'',
         'main_image_url': '',
         'lat': 35.7248,
-        'long': -78.6703
+        'long': -78.6703,
+        'status': 'U. Contract',
+        'acres': '1.558',
     },
 ]
 

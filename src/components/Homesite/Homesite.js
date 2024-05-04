@@ -12,7 +12,6 @@ import HomesiteRelatedHomes from './HomesiteRelatedHomes';
 import HomesiteGallery from './HomesiteGallery';
 
 
-
 const Homesite = () => {
     const { community_slug, homesite_slug } = useParams();
 
@@ -24,6 +23,7 @@ const Homesite = () => {
     );
 
     const plan = plans.find((plan) => plan.name === selectedHomesite.plan);
+    const images = selectedHomesite.images;
 
     if (!selectedHomesite) {
         return <div>Homesite not found</div>;
@@ -160,7 +160,7 @@ const Homesite = () => {
                 </div>
             </section>
 
-            <HomesiteGallery homesite={selectedHomesite} />
+            <HomesiteGallery imgs={images} />
             <HomesitePlan plan={plan} />
             <HomesiteRelatedHomes homesites={homesites} />
 
